@@ -10,8 +10,6 @@ def search_youtube(q, max_results=1, key=None):
                      params={'q': q, 'type': 'video', 'maxResults': max_results,
                              'part': 'snippet', 'key': key})
 
-    print(r.json())
-
     items = []
     for item in r.json()['items']:
         items.append({'id': item['id']['videoId'], 'title': item['snippet']['title']})
@@ -31,10 +29,7 @@ class NowplayingBot(PineappleBot):
                                     username=self.config.lastfm_username,
                                     password_hash=self.config.lastfm_password_hash)
 
-        # kick off the post task instantly (for dev, TODO: remove)
-        self.post_np()
-
-    @interval(10)
+    @interval(30)
     def post_np(self):
         # grab the track from the last.fm api
         currently_playing = self.lastfm.get_user(self.config.lastfm_username).get_now_playing()
