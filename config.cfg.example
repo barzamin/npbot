@@ -1,6 +1,11 @@
 [np]
 class = nowplaying.NowplayingBot
-domain = ; FILL IN ;
-client_id = ; FILL IN ;
-client_secret = ; FILL IN ;
-access_token = ; FILL IN ;
+domain = ; fill in ;
+client_id = ; fill in ;
+client_secret = ; fill in ;
+access_token = ; fill in ;
+lastfm_api_key = ; fill in ;
+lastfm_api_secret = ; fill in ;
+lastfm_username = ; fill in ;
+lastfm_password_hash = ; fill in ;
+youtube_key = ; fill in ;
