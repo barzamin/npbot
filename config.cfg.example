@@ -1,0 +1,6 @@
+[np]
+class = nowplaying.NowplayingBot
+domain = ; FILL IN ;
+client_id = ; FILL IN ;
+client_secret = ; FILL IN ;
+access_token = ; FILL IN ;
