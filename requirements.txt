@@ -1,0 +1,2 @@
+pylast==2.1.0
+ananas==1.0.0b5
