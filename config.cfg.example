@@ -9,3 +9,4 @@ lastfm_api_secret = ; fill in ;
 lastfm_username = ; fill in ;
 lastfm_password_hash = ; fill in ;
 youtube_key = ; fill in ;
+use_last_played = no

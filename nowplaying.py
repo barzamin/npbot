@@ -21,7 +21,8 @@ class NowplayingBot(PineappleBot):
         self.last_posted_track = None
 
     def start(self):
-        for k in ['lastfm_api_key', 'lastfm_api_secret', 'lastfm_username', 'lastfm_password_hash', 'youtube_key']:
+        for k in ['lastfm_api_key', 'lastfm_api_secret', 'lastfm_username', 'lastfm_password_hash',
+                  'youtube_key', 'use_last_played']:
             if k not in self.config:
                 raise ConfigurationError(f"NowplayingBot requires a '{k}'")
 
@@ -29,10 +30,15 @@ class NowplayingBot(PineappleBot):
                                     username=self.config.lastfm_username,
                                     password_hash=self.config.lastfm_password_hash)
 
+        self.post_np()
+
     @interval(30)
     def post_np(self):
         # grab the track from the last.fm api
-        currently_playing = self.lastfm.get_user(self.config.lastfm_username).get_recent_tracks(1)[0][0]
+        if self.config.use_last_played == 'yes':
+            currently_playing = self.lastfm.get_user(self.config.lastfm_username).get_recent_tracks(1)[0][0]
+        else:
+            currently_playing = self.lastfm.get_user(self.config.lastfm_username).get_now_playing()
 
         # don't try to post if nothing is being played
         if currently_playing is None:
