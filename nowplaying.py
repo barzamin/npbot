@@ -34,6 +34,10 @@ class NowplayingBot(PineappleBot):
         # grab the track from the last.fm api
         currently_playing = self.lastfm.get_user(self.config.lastfm_username).get_now_playing()
 
+        # don't try to post if nothing is being played
+        if currently_playing is None:
+            return
+
         # don't repost if we've already posted about this track
         if currently_playing.__hash__() == self.last_posted_track:
             return
