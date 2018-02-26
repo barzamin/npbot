@@ -32,7 +32,7 @@ class NowplayingBot(PineappleBot):
     @interval(30)
     def post_np(self):
         # grab the track from the last.fm api
-        currently_playing = self.lastfm.get_user(self.config.lastfm_username).get_now_playing()
+        currently_playing = self.lastfm.get_user(self.config.lastfm_username).get_recent_tracks(1)[0][0]
 
         # don't try to post if nothing is being played
         if currently_playing is None:
