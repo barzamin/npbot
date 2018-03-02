@@ -52,7 +52,7 @@ class NowplayingBot(PineappleBot):
         
         # make a best-effort guess at the youtube link for this track
         yt_search = search_youtube(str(currently_playing), key=self.config.youtube_key)
-        if yt_search is not None:
+        if len(yt_search) > 0:
             yt_link = f"https://www.youtube.com/watch?v={yt_search[0]['id']}"
         else:
             yt_link = ':sparkler: no youtube link, sorry :sparkler:'
