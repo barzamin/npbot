@@ -55,7 +55,7 @@ class NowplayingBot(PineappleBot):
         if len(yt_search) > 0:
             yt_link = f"https://www.youtube.com/watch?v={yt_search[0]['id']}"
         else:
-            yt_link = ':sparkler: no youtube link, sorry :sparkler:'
+            yt_link = '🎇 no youtube link, sorry 🎇'
 
         # template the post
         post_template = '''\
