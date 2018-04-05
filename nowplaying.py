@@ -67,4 +67,4 @@ class NowplayingBot(PineappleBot):
                                     track=currently_playing.get_title(), yt_link=yt_link)
 
         # do the thing
-        self.mastodon.toot(post)
+        self.mastodon.status_post(post, visibility='unlisted')
